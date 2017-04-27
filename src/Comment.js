@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+//должен был тоглиться список, а не каждый коммент
 export default class Comment extends Component {
     state = {
         isOpen: false
