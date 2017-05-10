@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import CommentList from "./CommentList";
 import PropTypes from 'prop-types';
-import toggleOpen from '../decorators/toggleOpen';
 
 class Article extends Component {
     static propTypes = {
@@ -15,12 +14,16 @@ class Article extends Component {
         toggleOpen: PropTypes.func
     };
 
-    componentWillMount() {
-        console.log('---', 'mounting');
+    // componentWillMount() {
+    //     console.log('---', 'mounting');
+    // }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.isOpen !== this.props.isOpen
     }
 
-    componentDidMount() {
-        console.log('----', 'mounted');
+    componentWillUpdate() {
+        console.log('----', 'updating');
     }
 
     render() {
@@ -47,4 +50,4 @@ class Article extends Component {
     }
 }
 
-export default toggleOpen(Article)
+export default Article
