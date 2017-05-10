@@ -1,11 +1,11 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import Comment from './Comment'
-import toggleOpen from '../decorators/toggleOpen'
+import React from "react";
+import PropTypes from "prop-types";
+import Comment from "./Comment";
+import toggleOpen from "../decorators/toggleOpen";
 
 function CommentList(props) {
-    const {isOpen, toggleOpen} = props
-    const linkText = isOpen ? 'hide comments' : 'show comments'
+    const {isOpen, toggleOpen} = props;
+    const linkText = isOpen ? 'hide comments' : 'show comments';
 
     return (
         <div>
@@ -21,9 +21,9 @@ CommentList.PropTypes = {
 };
 
 function getBody(props) {
-    const {comments = [], isOpen} = props
-    if (!isOpen) return null
-    if (!comments.length) return <p>No comments yet</p>
+    const {comments = [], isOpen} = props;
+    if (!isOpen) return null;
+    if (!comments.length) return <p>No comments yet</p>;
     return (
         <ul>
             {comments.map(comment => <li key={comment.id}><Comment comment={comment}/></li>)}
